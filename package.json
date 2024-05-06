@@ -1,10 +1,13 @@
 {
 	"name": "dexter-ds",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Design System Exmed",
-	"main": "index.ts",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"clean": "rimraf lib",
+		"build": "tsc",
+		"prepublish": "npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -20,7 +23,11 @@
 		"url": "https://github.com/exmed/dexter-ds/issues"
 	},
 	"homepage": "https://github.com/exmed/dexter-ds#readme",
+	"files": [
+		"lib/**/*"
+	],
 	"devDependencies": {
+		"rimraf": "^5.0.5",
 		"typescript": "^5.4.5"
 	}
 }
