@@ -1,26 +1,26 @@
 {
-  "name": "dexter-ds",
-  "version": "0.0.1",
-  "description": "Design System Exmed",
-  "main": "index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/exmed/dexter-ds.git"
-  },
-  "keywords": [
-    "design-system",
-    "exmed"
-  ],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/exmed/dexter-ds/issues"
-  },
-  "homepage": "https://github.com/exmed/dexter-ds#readme",
-  "devDependencies": {
-    "typescript": "^5.4.5"
-  }
+	"name": "dexter-ds",
+	"version": "0.0.2",
+	"description": "Design System Exmed",
+	"main": "index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/exmed/dexter-ds.git"
+	},
+	"keywords": [
+		"design-system",
+		"exmed"
+	],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/exmed/dexter-ds/issues"
+	},
+	"homepage": "https://github.com/exmed/dexter-ds#readme",
+	"devDependencies": {
+		"typescript": "^5.4.5"
+	}
 }
