@@ -1,11 +1,10 @@
 {
-	"name": "dexter-ds",
-	"version": "0.0.3",
+	"name": "@exmed/dexter-ds",
+	"version": "0.0.1",
 	"description": "Design System Exmed",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
-		"clean": "rimraf lib",
 		"build": "tsc",
 		"prepublish": "npm run build"
 	},
@@ -27,7 +26,6 @@
 		"lib/**/*"
 	],
 	"devDependencies": {
-		"rimraf": "^5.0.5",
 		"typescript": "^5.4.5"
 	}
 }
