@@ -2,10 +2,10 @@
 	"name": "@exmed/dexter-ds",
 	"version": "0.0.1",
 	"description": "Design System Exmed",
-	"main": "lib/index.js",
-	"types": "lib/index.d.ts",
+	"main": "index.js",
+	"types": "index.d.ts",
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc --outDir ./",
 		"prepublish": "npm run build"
 	},
 	"repository": {
@@ -23,7 +23,7 @@
 	},
 	"homepage": "https://github.com/exmed/dexter-ds#readme",
 	"files": [
-		"lib/**/*"
+		"**/*"
 	],
 	"devDependencies": {
 		"typescript": "^5.4.5"
