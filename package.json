@@ -5,7 +5,9 @@
 	"main": "index.js",
 	"types": "index.d.ts",
 	"scripts": {
-		"build": "tsc --outDir ./",
+		"clean": "rimraf ./icons && rimraf ./colors",
+		"optimize": "npm run clean & svgo -q -p 8 -f ./src/assets/raw-svgs -o ./src/assets/svg",
+		"build": "npm run optimize && node ./src/scripts/build.js && tsc --outDir ./",
 		"prepublish": "npm run build"
 	},
 	"repository": {
@@ -26,6 +28,13 @@
 		"**/*"
 	],
 	"devDependencies": {
+		"@babel/core": "^7.24.5",
+		"@babel/preset-react": "^7.24.1",
+		"@svgr/cli": "^8.1.0",
+		"@svgr/core": "^8.1.0",
+		"rimraf": "^5.0.5",
+		"svgo": "^3.2.0",
+		"terser": "^5.31.0",
 		"typescript": "^5.4.5"
 	}
 }
