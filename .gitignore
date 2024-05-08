@@ -1,6 +1,10 @@
 node_modules
-lib
+
+src/assets/svg
+
+icons
 colors
+
 index.d.ts
 index.js
 index.js.map

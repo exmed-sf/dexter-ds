@@ -4,3 +4,5 @@ package.json
 package-lock.json
 tsconfig.json
 .gitignore
+icons/build.js
+svgo.config.js
