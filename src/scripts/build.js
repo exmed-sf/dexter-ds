@@ -1,10 +1,9 @@
 const { transform } = require('@svgr/core');
 const fs = require('fs/promises');
-const { rimraf } = require('rimraf');
 const { transformAsync } = require('@babel/core');
 const { minify } = require('terser');
 
-const outputPath = './lib/icons';
+const outputPath = './lib/esm/icons';
 const iconsPath = './src/assets/svg';
 
 function pascalCase(str) {
@@ -28,6 +27,8 @@ async function transformSVGtoJSX(file, componentName) {
 		{ componentName },
 	);
 
+	return svgReactContent;
+
 	const { code } = await transformAsync(svgReactContent, {
 		presets: [['@babel/preset-react', { pure: false }]],
 	});
@@ -42,7 +43,7 @@ async function transformSVGtoJSX(file, componentName) {
 function indexFileContent(files, includeExtension = true) {
 	let content = '';
 
-	const extension = includeExtension ? '.js' : '';
+	const extension = includeExtension ? '.jsx' : '';
 
 	files.map((fileName) => {
 		const componentName = `Ic${pascalCase(fileName.replace(/.svg/, ''))}`;
@@ -71,13 +72,17 @@ async function buildIcons() {
 			const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
 			console.log(`- Creating file: ${componentName}.js`);
-			await fs.writeFile(`${outDir}/${componentName}.js`, content, 'utf-8');
+			await fs.writeFile(
+				`${outDir}/${componentName}.jsx`,
+				`export default function Icon(){ return (${content}) }`,
+				'utf-8',
+			);
 
 			await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');
 		}),
 	);
 
-	console.log('- Creating file: index.js');
+	console.log('- Creating file: icons.js');
 	await fs.writeFile(`${outDir}/index.js`, indexFileContent(files), 'utf-8');
 	await fs.writeFile(
 		`${outDir}/index.d.ts`,
@@ -89,7 +94,7 @@ async function buildIcons() {
 (function main() {
 	console.log('🏗 Building icon package...');
 
-	rimraf(`${outputPath}`)
-		.then(() => Promise.all([buildIcons()]))
-		.then(() => console.log('✅ Finished building package.'));
+	Promise.all([buildIcons()]).then(() =>
+		console.log('✅ Finished building package.'),
+	);
 })();
