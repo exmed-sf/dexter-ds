@@ -1,13 +1,23 @@
 {
+	"include": ["src"],
+	"exclude": ["node_modules"],
 	"compilerOptions": {
-		"target": "es5",
-		"module": "commonjs",
+		"module": "esnext",
+		"lib": ["dom", "esnext"],
+		"importHelpers": true,
+		"declaration": true,
 		"sourceMap": true,
-		"outDir": "./lib",
 		"rootDir": "./src",
+		"outDir": "./lib/esm",
 		"strict": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"moduleResolution": "node",
+		"jsx": "react",
 		"esModuleInterop": true,
-		"declaration": true
-	},
-	"include": ["src"]
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true
+	}
 }

@@ -4,7 +4,7 @@ const { rimraf } = require('rimraf');
 const { transformAsync } = require('@babel/core');
 const { minify } = require('terser');
 
-const outputPath = './icons';
+const outputPath = './lib/icons';
 const iconsPath = './src/assets/svg';
 
 function pascalCase(str) {

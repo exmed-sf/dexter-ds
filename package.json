@@ -2,12 +2,15 @@
 	"name": "@exmed/dexter-ds",
 	"version": "0.0.1",
 	"description": "Design System Exmed",
-	"main": "index.js",
-	"types": "index.d.ts",
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
+	"types": "./lib/esm/index.d.ts",
 	"scripts": {
-		"clean": "rimraf ./icons && rimraf ./colors",
+		"clean": "rimraf ./lib",
 		"optimize": "npm run clean & svgo -q -p 8 -f ./src/assets/raw-svgs -o ./src/assets/svg",
-		"build": "npm run optimize && node ./src/scripts/build.js && tsc --outDir ./",
+		"build": "npm run optimize && node ./src/scripts/build.js && tsc",
+		"build:esm": "tsc",
+		"build:cjs": "tsc --module commonjs --outDir dist/cjs",
 		"prepublish": "npm run build"
 	},
 	"repository": {
@@ -25,7 +28,9 @@
 	},
 	"homepage": "https://github.com/exmed/dexter-ds#readme",
 	"files": [
-		"**/*"
+		"lib",
+		"README.md",
+		"LICENSE"
 	],
 	"devDependencies": {
 		"@babel/core": "^7.24.5",
