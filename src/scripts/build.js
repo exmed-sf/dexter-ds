@@ -80,7 +80,7 @@ async function buildIcons() {
 
 			const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
-			console.log(`- Creating file: ${componentName}.js`);
+			// console.log(`- Creating file: ${componentName}.js`);
 			await fs.writeFile(`${outDir}/${componentName}.jsx`, content, 'utf-8');
 
 			await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');
