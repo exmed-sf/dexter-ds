@@ -1,10 +1,8 @@
 const { transform } = require('@svgr/core');
 const fs = require('fs/promises');
-const { transformAsync } = require('@babel/core');
-const { minify } = require('terser');
 
-const outputPath = './lib/esm/icons';
-const iconsPath = './src/assets/svg';
+const outputPath = './lib/icons';
+const iconsPath = './lib/icons/svg';
 
 function pascalCase(str) {
 	return str
@@ -22,22 +20,17 @@ async function transformSVGtoJSX(file, componentName) {
 		content,
 		{
 			icon: true,
-			replaceAttrValues: { '#000': "{props.color || 'currentColor'}" },
+			plugins: [
+				'@svgr/plugin-svgo',
+				'@svgr/plugin-jsx',
+				'@svgr/plugin-prettier',
+			],
+			replaceAttrValues: { '#000': 'currentColor' },
 		},
 		{ componentName },
 	);
 
 	return svgReactContent;
-
-	const { code } = await transformAsync(svgReactContent, {
-		presets: [['@babel/preset-react', { pure: false }]],
-	});
-
-	const { code: minifiedCode } = await minify(code);
-
-	return minifiedCode;
-
-	// return `export default function ${componentName}(){return(${svgReactContent});}`;
 }
 
 function indexFileContent(files, includeExtension = true) {
