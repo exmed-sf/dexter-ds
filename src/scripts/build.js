@@ -49,6 +49,22 @@ function indexFileContent(files, includeExtension = true) {
 	return content;
 }
 
+function buildIndexNativeFile(files) {
+	let content = '';
+	let exports = '';
+
+	files.map((fileName) => {
+		const componentName = `Ic${pascalCase(fileName.replace(/.svg/, ''))}`;
+
+		const directoryString = `'../svg/${fileName}'`;
+
+		content += `import ${componentName} from ${directoryString};\n`;
+		exports += ` ${componentName},`;
+	});
+
+	return `${content}\nexport {${exports.slice(0, -1)} }`;
+}
+
 async function buildIcons() {
 	const outDir = outputPath;
 
@@ -65,17 +81,19 @@ async function buildIcons() {
 			const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
 			console.log(`- Creating file: ${componentName}.js`);
-			await fs.writeFile(
-				`${outDir}/${componentName}.jsx`,
-				`export default function Icon(){ return (${content}) }`,
-				'utf-8',
-			);
+			await fs.writeFile(`${outDir}/${componentName}.jsx`, content, 'utf-8');
 
 			await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');
 		}),
 	);
 
-	console.log('- Creating file: icons.js');
+	const exports = buildIndexNativeFile(files);
+
+	console.log('- Creating React Native files');
+	await fs.writeFile(`${outDir}/svg/index.js`, exports, 'utf-8');
+	await fs.writeFile(`${outDir}/svg/index.d.ts`, exports, 'utf-8');
+
+	console.log('- Creating file: icons.ts');
 	await fs.writeFile(`${outDir}/index.js`, indexFileContent(files), 'utf-8');
 	await fs.writeFile(
 		`${outDir}/index.d.ts`,
