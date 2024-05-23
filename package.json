@@ -32,6 +32,11 @@
 		"README.md",
 		"LICENSE"
 	],
+	"exports": {
+		"./icons": "./lib/icons/index.js",
+		"./icons/svg": "./lib/icons/svg/index.js",
+		"./colors": "./lib/colors/index.js"
+	},
 	"devDependencies": {
 		"@svgr/cli": "^8.1.0",
 		"@svgr/core": "^8.1.0",
