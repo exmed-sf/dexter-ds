@@ -2,9 +2,9 @@
 	"name": "@exmed/dexter-ds",
 	"version": "0.0.1",
 	"description": "Design System Exmed",
-	"main": "./lib/cjs/index.js",
-	"module": "./lib/esm/index.js",
-	"types": "./lib/esm/index.d.ts",
+	"main": "./lib/index.js",
+	"module": "./lib/index.js",
+	"types": "./lib/index.d.ts",
 	"scripts": {
 		"clean": "rimraf ./lib",
 		"optimize": "npm run clean & svgo -q -p 8 -f ./src/assets/svg -o ./lib/icons/svg",
