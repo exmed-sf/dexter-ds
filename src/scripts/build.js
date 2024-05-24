@@ -25,7 +25,6 @@ async function transformSVGtoJSX(file, componentName) {
 				'@svgr/plugin-jsx',
 				'@svgr/plugin-prettier',
 			],
-			replaceAttrValues: { '#000': 'currentColor' },
 		},
 		{ componentName },
 	);
