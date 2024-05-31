@@ -1,6 +1,6 @@
 {
 	"name": "@exmed/dexter-ds",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Design System Exmed",
 	"main": "./lib/index.js",
 	"module": "./lib/index.js",
