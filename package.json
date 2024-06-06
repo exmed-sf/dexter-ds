@@ -37,6 +37,9 @@
 		"./icons/svg": "./lib/icons/svg/index.js",
 		"./colors": "./lib/colors/index.js"
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
