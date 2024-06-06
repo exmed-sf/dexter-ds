@@ -71,6 +71,8 @@ async function buildIcons() {
 
 	const files = await fs.readdir(`${iconsPath}`, 'utf-8');
 
+	console.log(`🔎 Identified ${files.length} icons`);
+
 	await Promise.all(
 		files.flatMap(async (fileName) => {
 			const componentName = `Ic${pascalCase(fileName.replace(/.svg/, ''))}`;
@@ -79,7 +81,6 @@ async function buildIcons() {
 
 			const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
 
-			// console.log(`- Creating file: ${componentName}.js`);
 			await fs.writeFile(`${outDir}/${componentName}.jsx`, content, 'utf-8');
 
 			await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');

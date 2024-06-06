@@ -11,8 +11,7 @@
 		"build:esm": "tsc",
 		"build:cjs": "tsc --module commonjs --outDir dist/cjs",
 		"build": "npm run optimize && npm run build:esm && node ./src/scripts/build.js",
-		"prepublish": "npm run build",
-		"prepare": "npm run build"
+		"prepublish": "npm run build"
 	},
 	"repository": {
 		"type": "git",
