@@ -2,12 +2,11 @@
 
 Design System by Exmed 😎
 
-<img align="right" alt="Logo" src="website/static/logo.png" style="margin-bottom: 16px">
-
-<p align="center">
 [![version](https://img.shields.io/npm/v/@exmed/dexter-ds.svg)](https://www.npmjs.com/package/@exmed/dexter-ds)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-</p>
+
+<img align="right" alt="Logo" src="website/static/logo.png" style="margin-bottom: 16px">
+
 
 ## Como utilizar
 
