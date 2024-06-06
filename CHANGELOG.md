@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/exmed/dexter-ds/compare/v1.0.0...v1.0.1) (2024-06-06)
+
+
+### Bug Fixes
+
+* readme ([5ac1c87](https://github.com/exmed/dexter-ds/commit/5ac1c875430c8c52d8d14873f7556de05c64c1ec))
+
 # 1.0.0 (2024-06-06)
 
 
