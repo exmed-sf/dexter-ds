@@ -1,6 +1,6 @@
 {
 	"name": "@exmed/dexter-ds",
-	"version": "0.4.0",
+	"version": "0.0.1",
 	"description": "Design System Exmed",
 	"main": "./lib/index.js",
 	"module": "./lib/index.js",
@@ -11,7 +11,8 @@
 		"build:esm": "tsc",
 		"build:cjs": "tsc --module commonjs --outDir dist/cjs",
 		"build": "npm run optimize && npm run build:esm && node ./src/scripts/build.js",
-		"prepublish": "npm run build"
+		"prepublish": "npm run build",
+		"prepare": "npm run build"
 	},
 	"repository": {
 		"type": "git",
