@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/exmed/dexter-ds/compare/v1.2.0...v1.3.0) (2024-07-03)
+
+
+### Features
+
+* add new module declaration ([9e9e010](https://github.com/exmed/dexter-ds/commit/9e9e010b4927c768434815c2a26d7878b488ac24))
+
 # [1.2.0](https://github.com/exmed/dexter-ds/compare/v1.1.0...v1.2.0) (2024-07-03)
 
 
