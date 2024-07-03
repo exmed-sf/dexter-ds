@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/exmed/dexter-ds/compare/v1.1.0...v1.2.0) (2024-07-03)
+
+
+### Features
+
+* **icons:** add new icon ([bceb066](https://github.com/exmed/dexter-ds/commit/bceb066edba97e1e5b95d1f1a57bb09a0e74148b))
+
 # [1.1.0](https://github.com/exmed/dexter-ds/compare/v1.0.1...v1.1.0) (2024-06-10)
 
 
