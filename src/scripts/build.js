@@ -45,6 +45,8 @@ function indexFileContent(files, includeExtension = true) {
 		content += `export { default as ${componentName} } from ${directoryString};\n`;
 	});
 
+	content += `export * as svgs from './svg';`;
+
 	return content;
 }
 
