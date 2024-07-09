@@ -26,7 +26,7 @@ Neste repositório, você encontrará
 Utilize as cores individuais ou o conjunto completo:
 
 ```js
-import { individual } from "@exmed/dexter-ds/colors"
+import { individual } from "@exmed/dexter-ds/lib/colors"
 
 individual[0];	// "#B1EFE8"
 ...					// ...
@@ -34,7 +34,7 @@ individual[40];		// "#D0F5F1"
 ```
 
 ```js
-import * as colors from '@exmed/dexter-ds/colors';
+import * as colors from '@exmed/dexter-ds/lib/colors';
 
 colors; // { individual: {...}, empresas: {...}, ... }
 
@@ -50,7 +50,7 @@ Utilize os ícones de acordo com a sua plataforma
 `index.jsx`
 
 ```jsx
-import { IcClose } from '@exmed/dexter-ds/icons';
+import { IcClose } from '@exmed/dexter-ds/lib/icons';
 
 <Container>
 	<IcClose />
@@ -61,7 +61,7 @@ import { IcClose } from '@exmed/dexter-ds/icons';
 
 ```js
 import styled from 'styled-components';
-import { neutral } from '@exmed/dexter-ds/colors';
+import { neutral } from '@exmed/dexter-ds/lib/colors';
 
 const Container = styled.div`
 	color: ${neutral[90]}; // #141414
@@ -79,9 +79,9 @@ const Container = styled.div`
 
 ```js
 import styled from "styled-components";
-import { neutral } from "@exmed/dexter-ds/colors"
+import { neutral } from "@exmed/dexter-ds/lib/colors"
 ---
-import { IcClose } from "@exmed/dexter-ds/icons/svg";
+import { IcClose } from "@exmed/dexter-ds/lib/icons/svg";
 
 const Icon = styled(Close)`
 	color: ${neutral[90]};		// #141414
