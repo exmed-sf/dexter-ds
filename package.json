@@ -32,11 +32,6 @@
 		"README.md",
 		"LICENSE"
 	],
-	"exports": {
-		"./icons": "./lib/icons/index.js",
-		"./icons/svg": "./lib/icons/svg/index.js",
-		"./colors": "./lib/colors/index.js"
-	},
 	"publishConfig": {
 		"access": "public"
 	},
