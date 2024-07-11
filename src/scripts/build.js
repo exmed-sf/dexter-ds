@@ -1,5 +1,5 @@
-const { transform } = require('@svgr/core');
 const fs = require('fs/promises');
+const { parse } = require('svgson');
 
 const outputPath = './lib/icons';
 const iconsPath = './lib/icons/svg';
@@ -13,29 +13,49 @@ function pascalCase(str) {
 		.replace(/\w/, (s) => s.toUpperCase());
 }
 
-async function transformSVGtoJSX(file, componentName) {
-	const content = await fs.readFile(`${iconsPath}/${file}`, 'utf-8');
+/**
+ * @param {import('svgson').INode} data
+ */
+function createElement(data) {
+	const children = [];
 
-	const svgReactContent = await transform(
-		content,
-		{
-			icon: true,
-			plugins: [
-				'@svgr/plugin-svgo',
-				'@svgr/plugin-jsx',
-				'@svgr/plugin-prettier',
-			],
-		},
-		{ componentName },
-	);
+	if (data.children) {
+		data.children.forEach((child) => {
+			children.push(createElement(child));
+		});
+	}
 
-	return svgReactContent;
+	let attrs = JSON.stringify(data.attributes);
+
+	if (data.name === 'svg') {
+		attrs = attrs.replace('}', ', ...props}');
+	}
+
+	return `React.createElement("${data.name}", ${attrs}, ${
+		children.length > 0 ? children : null
+	})`;
 }
 
-function indexFileContent(files, includeExtension = true) {
+async function parseSvg(fileName) {
+	const content = await fs.readFile(`${iconsPath}/${fileName}`, 'utf-8');
+
+	const svgElement = await parse(content);
+
+	return createElement(svgElement);
+}
+
+function generateRfc(componentName, data) {
+	return `import React from 'react';\nfunction ${componentName}(props) {\nreturn (${data});\n}\nexport default ${componentName};`;
+}
+
+function generateTypes(componentName) {
+	return `import React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
+}
+
+function createExportsJSFile(files, includeExtension = true) {
 	let content = '';
 
-	const extension = includeExtension ? '.jsx' : '';
+	const extension = includeExtension ? '.js' : '';
 
 	files.map((fileName) => {
 		const componentName = `Ic${pascalCase(fileName.replace(/.svg/, ''))}`;
@@ -50,7 +70,7 @@ function indexFileContent(files, includeExtension = true) {
 	return content;
 }
 
-function buildIndexNativeFile(files) {
+function createExportsSVGFile(files) {
 	let content = '';
 	let exports = '';
 
@@ -73,41 +93,43 @@ async function buildIcons() {
 
 	const files = await fs.readdir(`${iconsPath}`, 'utf-8');
 
-	console.log(`🔎 Identified ${files.length} icons`);
+	console.log(`🔎	Identified ${files.length} icons`);
 
 	await Promise.all(
 		files.flatMap(async (fileName) => {
 			const componentName = `Ic${pascalCase(fileName.replace(/.svg/, ''))}`;
 
-			const content = await transformSVGtoJSX(fileName, componentName);
+			const content = await parseSvg(fileName);
 
-			const types = `import * as React from 'react';\ndeclare function ${componentName}(props: React.SVGProps<SVGSVGElement>): JSX.Element;\nexport default ${componentName};\n`;
+			const types = generateTypes(componentName);
 
-			await fs.writeFile(`${outDir}/${componentName}.jsx`, content, 'utf-8');
+			const arq = generateRfc(componentName, content);
+
+			await fs.writeFile(`${outDir}/${componentName}.js`, arq, 'utf-8');
 
 			await fs.writeFile(`${outDir}/${componentName}.d.ts`, types, 'utf-8');
 		}),
 	);
 
-	const exports = buildIndexNativeFile(files);
+	const exports = createExportsSVGFile(files);
 
-	console.log('- Creating React Native files');
+	console.log('📄	Creating React Native files');
 	await fs.writeFile(`${outDir}/svg/index.js`, exports, 'utf-8');
 	await fs.writeFile(`${outDir}/svg/index.d.ts`, exports, 'utf-8');
 
-	console.log('- Creating file: icons.ts');
-	await fs.writeFile(`${outDir}/index.js`, indexFileContent(files), 'utf-8');
+	console.log('📄	Creating React Web files');
+	await fs.writeFile(`${outDir}/index.js`, createExportsJSFile(files), 'utf-8');
 	await fs.writeFile(
 		`${outDir}/index.d.ts`,
-		indexFileContent(files, false),
+		createExportsJSFile(files, false),
 		'utf-8',
 	);
 }
 
 (function main() {
-	console.log('🏗 Building icon package...');
+	console.log('🏗	Building icon package...');
 
 	Promise.all([buildIcons()]).then(() =>
-		console.log('✅ Finished building package.'),
+		console.log('✅	Finished building package.'),
 	);
 })();
