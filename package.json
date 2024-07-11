@@ -10,7 +10,7 @@
 		"optimize": "npm run clean & svgo -q -p 8 -f ./src/assets/svg -o ./lib/icons/svg",
 		"build:esm": "tsc",
 		"build:cjs": "tsc --module commonjs --outDir dist/cjs",
-		"build": "npm run optimize & npm run build:esm & node ./src/scripts/build.js",
+		"build": "npm run optimize && npm run build:esm && node ./src/scripts/build.js",
 		"prepublish": "npm run build"
 	},
 	"repository": {
