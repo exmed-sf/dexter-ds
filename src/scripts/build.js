@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const { parse } = require('svgson');
 
-const outputPath = './lib/icons';
+const outDir = './lib/icons';
 const iconsPath = './lib/icons/svg';
 
 function pascalCase(str) {
@@ -87,11 +87,7 @@ function createExportsSVGFile(files) {
 }
 
 async function buildIcons() {
-	const outDir = outputPath;
-
-	await fs.mkdir(outDir, { recursive: true });
-
-	const files = await fs.readdir(`${iconsPath}`, 'utf-8');
+	const files = await fs.readdir(iconsPath, 'utf-8');
 
 	console.log(`🔎	Identified ${files.length} icons`);
 
