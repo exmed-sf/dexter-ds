@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/exmed/dexter-ds/compare/v1.3.0...v1.4.0) (2024-07-11)
+
+
+### Bug Fixes
+
+* add exports on index.ts ([5b89cfd](https://github.com/exmed/dexter-ds/commit/5b89cfd054621a6834866c49fb51d461ffc0b728))
+* update imports on readme ([5355463](https://github.com/exmed/dexter-ds/commit/5355463b0a6ec5b317eeea60c6622c20b207563d))
+
+
+### Features
+
+* **build:** update script to use React.createElement to render the icons ([3b064bf](https://github.com/exmed/dexter-ds/commit/3b064bf75f15fb52a57a689b26e83c8eb6fd3bee))
+
 # [1.3.0](https://github.com/exmed/dexter-ds/compare/v1.2.0...v1.3.0) (2024-07-03)
 
 
