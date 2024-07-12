@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/exmed/dexter-ds/compare/v1.5.0...v1.5.1) (2024-07-12)
+
+
+### Bug Fixes
+
+* **export:** use export default on functions ([7d87e04](https://github.com/exmed/dexter-ds/commit/7d87e04c15a921850b4092b5cc6a62a0e9e4cde3))
+
 # [1.5.0](https://github.com/exmed/dexter-ds/compare/v1.4.0...v1.5.0) (2024-07-12)
 
 
