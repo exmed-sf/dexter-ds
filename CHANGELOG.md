@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/exmed/dexter-ds/compare/v1.4.0...v1.5.0) (2024-07-12)
+
+
+### Features
+
+* **functions:** create colors function module ([cbd963e](https://github.com/exmed/dexter-ds/commit/cbd963e906fe161c3d844c4ec634628d7e07c902))
+* **icons:** add new icons ([e38fb3a](https://github.com/exmed/dexter-ds/commit/e38fb3a85009d289864a7b2ff0344f986cc98437))
+* **icons:** add new icons ([a52f238](https://github.com/exmed/dexter-ds/commit/a52f2381740da276f2515c17976dcdeb36464ee5))
+
 # [1.4.0](https://github.com/exmed/dexter-ds/compare/v1.3.0...v1.4.0) (2024-07-11)
 
 
