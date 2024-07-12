@@ -13,7 +13,7 @@ const HIGH_LEVEL_CONTRAST = 4.5;
 /**
  * Retorna se uma cor tem o contraste suficiente para fundos brancos
  */
-export function isContrastOkToWhite(hexColor: string) {
+export default function isContrastOkToWhite(hexColor: string) {
 	return _contrastToWhite(hexColor) > HIGH_LEVEL_CONTRAST;
 }
 
@@ -41,7 +41,7 @@ function _hex2Rgb(hex: string) {
 }
 
 /**
- * Return iluminance value (base for getting the contrast)
+ * Retorna o valor da iluminância (base para obter o contraste)
  */
 function _calculateIlluminance(hexColor: string) {
 	const rgbColor = _hex2Rgb(hexColor);
