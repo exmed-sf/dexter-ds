@@ -1,8 +1,8 @@
 const fs = require('fs/promises');
 const { parse } = require('svgson');
 
-const outDir = './lib/icons';
-const iconsPath = './lib/icons/svg';
+const outDir = 'lib/icons';
+const iconsPath = 'lib/icons/svg';
 
 function pascalCase(str) {
 	return str
@@ -87,6 +87,8 @@ function createExportsSVGFile(files) {
 }
 
 async function buildIcons() {
+	console.log('🏗	Building icon package...');
+
 	const files = await fs.readdir(iconsPath, 'utf-8');
 
 	console.log(`🔎	Identified ${files.length} icons`);
@@ -120,12 +122,8 @@ async function buildIcons() {
 		createExportsJSFile(files, false),
 		'utf-8',
 	);
+
+	console.log('✅	Finished building package.');
 }
 
-(function main() {
-	console.log('🏗	Building icon package...');
-
-	Promise.all([buildIcons()]).then(() =>
-		console.log('✅	Finished building package.'),
-	);
-})();
+module.exports = buildIcons;
