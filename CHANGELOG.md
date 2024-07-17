@@ -1,3 +1,14 @@
+# [1.6.0](https://github.com/exmed/dexter-ds/compare/v1.5.1...v1.6.0) (2024-07-17)
+
+
+### Features
+
+* **build:** create build file for css colors and fonts ([3f715bf](https://github.com/exmed/dexter-ds/commit/3f715bf43dff69be76e216d5fed93e5636dac0f0))
+* **build:** create main build script file ([6af15fe](https://github.com/exmed/dexter-ds/commit/6af15fec4333efeb4b8fd47cbec3c2bf29e3f61a))
+* **fonts:** create Stara font files ([5cde2b1](https://github.com/exmed/dexter-ds/commit/5cde2b1575d03d42962ce67b0d69a6fbc0bcbefb))
+* **icons:** add new icons ([cda9a26](https://github.com/exmed/dexter-ds/commit/cda9a26df68bf419b771cf08f055787a21796deb))
+* **icons:** add new icons ([3b98f6d](https://github.com/exmed/dexter-ds/commit/3b98f6def264f2063956d9635917c58a2ed396de))
+
 ## [1.5.1](https://github.com/exmed/dexter-ds/compare/v1.5.0...v1.5.1) (2024-07-12)
 
 
