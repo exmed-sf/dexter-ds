@@ -123,6 +123,8 @@ async function buildIcons() {
 		'utf-8',
 	);
 
+	await fs.cp('src/assets/images', 'lib/images', { recursive: true });
+
 	console.log('✅	Finished building package.');
 }
 
