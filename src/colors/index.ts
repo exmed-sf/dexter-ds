@@ -10,3 +10,4 @@ export { default as yellow } from './yellow';
 export { default as lilac } from './lilac';
 export { default as orange } from './orange';
 export { default as green } from './green';
+export { default as status } from './status';
