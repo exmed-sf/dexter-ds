@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/exmed/dexter-ds/compare/v1.7.0...v1.8.0) (2024-08-23)
+
+
+### Features
+
+* **colors:** add new colors ([bb93d58](https://github.com/exmed/dexter-ds/commit/bb93d58128190010643b4dd58d888f77fc2b8a3c))
+* **icons:** add new icons ([412a660](https://github.com/exmed/dexter-ds/commit/412a6607eaf352c2662ceaf2f21be79ed89b9062))
+
 # [1.7.0](https://github.com/exmed/dexter-ds/compare/v1.6.0...v1.7.0) (2024-07-23)
 
 
