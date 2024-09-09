@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/exmed/dexter-ds/compare/v1.8.0...v1.9.0) (2024-09-09)
+
+
+### Features
+
+* add empty states illustrations ([38e2322](https://github.com/exmed/dexter-ds/commit/38e232278fabee7e766cacd827657eab5dddcf44))
+* add exmed products logos ([b4c3a8b](https://github.com/exmed/dexter-ds/commit/b4c3a8bad26906f8a8839c26a3901b1b8c9d374a))
+* **icons:** add new icons ([e747b01](https://github.com/exmed/dexter-ds/commit/e747b01dd90dd9e5dbca6cbc1fecb46b2f68b4ff))
+
 # [1.8.0](https://github.com/exmed/dexter-ds/compare/v1.7.0...v1.8.0) (2024-08-23)
 
 
