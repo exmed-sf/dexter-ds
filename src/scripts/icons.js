@@ -4,13 +4,13 @@ const { parse } = require('svgson');
 const outDir = 'lib/icons';
 const iconsPath = 'lib/icons/svg';
 
-function pascalCase(str) {
+function pascalCase(str, firstUpper = true) {
 	return str
 		.toLowerCase()
 		.replace(/[-_]+/g, ' ')
 		.replace(/[^a-zA-Z0-9\s]/g, '')
 		.replace(/\s+(.)(\w*)/g, ($1, $2, $3) => `${$2.toUpperCase() + $3}`)
-		.replace(/\w/, (s) => s.toUpperCase());
+		.replace(/\w/, (s) => (firstUpper ? s.toUpperCase() : s));
 }
 
 /**
@@ -25,7 +25,15 @@ function createElement(data) {
 		});
 	}
 
-	let attrs = JSON.stringify(data.attributes);
+	let attrs = {};
+
+	Object.keys(data.attributes).forEach((key) => {
+		attrs[pascalCase(key, false)] = data.attributes[key];
+	});
+
+	attrs = JSON.stringify(attrs);
+
+	console.log(attrs);
 
 	if (data.name === 'svg') {
 		attrs = attrs.replace('}', ', ...props}');
