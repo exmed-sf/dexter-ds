@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/exmed/dexter-ds/compare/v1.10.0...v1.10.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **build:** update script to deal with viewBox attribute ([4772936](https://github.com/exmed/dexter-ds/commit/47729362f4a3b6ff9de61badd9c96eb2a92365f7))
+
 # [1.10.0](https://github.com/exmed/dexter-ds/compare/v1.9.0...v1.10.0) (2024-10-15)
 
 
