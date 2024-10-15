@@ -88,4 +88,14 @@ const Icon = styled(Close)`
 `
 ```
 
+### Imagens
+
+As imagens podem ser acessadas pelo diretório `/lib/images`
+
+```js
+import BrFlag from "@exmed/dexter-ds/lib/images/flag_for_brasil.svg";
+
+import NoRequisition from "@exmed/dexter-ds/lib/images/empty-states/report.svg";
+```
+
 ### Bons códigos 🧑‍💻🖥️⚙️
