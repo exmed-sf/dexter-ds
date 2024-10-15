@@ -28,12 +28,14 @@ function createElement(data) {
 	let attrs = {};
 
 	Object.keys(data.attributes).forEach((key) => {
-		attrs[pascalCase(key, false)] = data.attributes[key];
+		if (key.toLowerCase() !== 'viewbox') {
+			attrs[pascalCase(key, false)] = data.attributes[key];
+		} else {
+			attrs[key] = data.attributes[key];
+		}
 	});
 
 	attrs = JSON.stringify(attrs);
-
-	console.log(attrs);
 
 	if (data.name === 'svg') {
 		attrs = attrs.replace('}', ', ...props}');
